@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <!-- 控制台输出 -->
+    <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} [%t] %p %C - %m%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- 日志文件输出,FileAppender就是用于将日志输出到文件中 -->
+    <appender name="file" class="ch.qos.logback.core.FileAppender">
+        <!-- 日志文件的保存路径和文件名，
+             可以是相对路径也可以是绝对路径 -->
+        <file>ch02/logs/service.log</file>
+        <!-- append设置为true表示日志每次都会追加到文件的末尾，
+             false这是先清空原有日志，然后再重新输入，默认是true-->
+        <append>true</append>
+        <!-- 指定日志的输出格式，这里与控制台输出格式保持一致-->
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} [%t] %p %C - %m%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- 日志输出级别 -->
+    <root level="debug">
+        <appender-ref ref="console"/>
+        <appender-ref ref="file"/>
+    </root>
+</configuration>

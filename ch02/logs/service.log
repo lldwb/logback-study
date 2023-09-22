@@ -1,0 +1,4 @@
+2023-09-21 10:02:50 [main] DEBUG edu.nf.ch02.Main - 调试日志信息
+2023-09-21 10:02:50 [main] INFO edu.nf.ch02.Main - 业务日志信息
+2023-09-21 10:02:50 [main] WARN edu.nf.ch02.Main - 警告日志信息
+2023-09-21 10:02:50 [main] ERROR edu.nf.ch02.Main - 异常日志信息

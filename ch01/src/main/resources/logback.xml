@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- configuration是配置的根节点，
+     scan：当设置为true时，如果配置文件发生了改变，
+           将会重新加载，默认值就是true
+     scanPeriod：设置扫描的间隔时间，默认就是1分钟
+-->
+<configuration scan="true" scanPeriod="60 seconds">
+    <!-- appender指定日志输出类型，可以是控制台、文件、数据库等
+         ConsoleAppender这个类就是用于将日志输出到控制台-->
+    <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+        <!-- encoder设置输出编码以及输出格式 -->
+        <encoder>
+            <!-- 日志的输出格式
+                 %d：指定日志输出的日期格式
+                 %t：当前执行日志输出的线程名称
+                 %p：日志的输出级别
+                 %C：输出日志所在的类的完整类名
+                 %m：日志消息
+                 %n：换行符
+            -->
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} [%t] %p %C - %m%n</pattern>
+        </encoder>
+    </appender>
+    <!-- 配置logger的根，并通过level指定输出的日志级别
+         输出级别从小到大的顺序为：trace<debug<info<warn<error
+         输出级别的控制：例如，如果level设置为info级别，
+                       那么系统中小于info级别的日志就不会被打印出来
+    -->
+    <root level="info">
+        <!-- 引用上面的输出类型，ref引用的是appender的name属性的值，
+             也可以引用多个类型，这样就可以同时输出到不同的目的地
+         -->
+        <appender-ref ref="console"/>
+        <!--<appender-ref ref="file"/>-->
+    </root>
+</configuration>
